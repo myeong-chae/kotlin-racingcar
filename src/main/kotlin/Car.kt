@@ -1,5 +1,7 @@
 package com.kmc
 
+import kotlin.random.Random
+
 class Car(name: String) {
     companion object {
         val mCarList: MutableList<Car> = mutableListOf()
@@ -7,8 +9,22 @@ class Car(name: String) {
             carList.forEach {
                 mCarList.add(Car(it))
             }
+            //사실 아래는 empty일 수는 없음
             if(mCarList.isEmpty()){
                 throw IllegalArgumentException("[ERROR] Please insert more then 1 Car name")
+            }
+        }
+
+        fun runStep(){
+            mCarList.forEach {
+                canMoveWithMove(it)
+            }
+        }
+
+        fun canMoveWithMove(car: Car) {
+            val number = Random.nextInt(10)
+            if(number >= 4){
+                car.moveCar()
             }
         }
     }
@@ -34,5 +50,9 @@ class Car(name: String) {
             positionDash += "-"
         }
         println(positionDash)
+    }
+
+    fun moveCar(){
+        mPosition++
     }
 }

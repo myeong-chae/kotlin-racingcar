@@ -21,6 +21,10 @@ fun main(){
             println(e.message)
         }
     }
+
+    for(i in 1..loopCount){
+        Car.runStep()
+    }
 }
 
 fun inputCar(): List<String> {
