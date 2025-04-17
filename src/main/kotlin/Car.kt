@@ -18,7 +18,9 @@ class Car(name: String) {
         fun runStep(){
             mCarList.forEach {
                 canMoveWithMove(it)
+                it.printPosition()
             }
+            println()
         }
 
         fun canMoveWithMove(car: Car) {
