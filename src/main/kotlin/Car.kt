@@ -29,6 +29,32 @@ class Car(name: String) {
                 car.moveCar()
             }
         }
+
+        fun printWinner() {
+            println("우승자 : ${findWinner().joinToString(", ")}")
+        }
+
+        fun findWinner(): List<String> {
+            val winnerList = mutableListOf<String>()
+            sortCarList()
+            var winnerPosition = mCarList.first().mPosition
+            for(car in mCarList){
+                if(winnerPosition == car.mPosition){
+                    winnerPosition = car.mPosition
+                    winnerList.add(car.mName)
+                    continue
+                }
+                break
+            }
+            return winnerList
+        }
+
+        fun sortCarList(){
+            //TODO 재 정렬 시, 입력 순서가 보장 되어야 하나?
+            val compare = compareBy<Car> {it.mPosition}
+            mCarList.sortWith(compare)
+            mCarList.reverse()
+        }
     }
 
     var mName = name

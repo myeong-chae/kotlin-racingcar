@@ -25,6 +25,8 @@ fun main(){
     for(i in 1..loopCount){
         Car.runStep()
     }
+
+    Car.printWinner()
 }
 
 fun inputCar(): List<String> {
