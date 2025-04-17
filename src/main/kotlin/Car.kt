@@ -2,16 +2,16 @@ package com.kmc
 
 import kotlin.random.Random
 
-class Car(name: String) {
+class Car() {
     companion object {
         val mCarList: MutableList<Car> = mutableListOf()
         fun createCar(carList: List<String>){
             carList.forEach {
-                mCarList.add(Car(it))
+                mCarList.add(Car().apply { mName = it })
             }
             //사실 아래는 empty일 수는 없음
             if(mCarList.isEmpty()){
-                throw IllegalArgumentException("[ERROR] Please insert more then 1 Car name")
+                throw IllegalArgumentException("[ERROR] 1개 이상의 자동차를 입력해 주세요")
             }
         }
 
@@ -57,7 +57,7 @@ class Car(name: String) {
         }
     }
 
-    var mName = name
+    var mName = ""
         set(value) {
             checkingNameException(value)
             field = value
@@ -66,7 +66,7 @@ class Car(name: String) {
 
     fun checkingNameException(name: String){
         if(name.length > 5){
-            throw IllegalArgumentException("[ERROR] Please Set Car Name Length Less than 5 at $name")
+            throw IllegalArgumentException("[ERROR] 5글자 이하로 이름을 입력해 주세요 -> $name")
         }
         //TODO 공백은?(all space 포함)
     }
