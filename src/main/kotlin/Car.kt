@@ -4,6 +4,7 @@ import kotlin.random.Random
 
 class Car() {
     companion object {
+        //TODO 중복은 어떻게 해야하지?
         val mCarList: MutableList<Car> = mutableListOf()
         fun clearCar(){
             mCarList.clear()

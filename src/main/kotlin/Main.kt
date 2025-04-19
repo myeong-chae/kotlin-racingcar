@@ -5,7 +5,8 @@ fun main(){
     var success = false
     while (!success) {
         try {
-            makeCar()
+            val inputList = inputCar()
+            makeCar(inputList)
             success = true
         } catch (e: IllegalArgumentException) {
             println(e.message)
@@ -21,17 +22,20 @@ fun main(){
         }
     }
 
-    for(i in 1..loopCount){
-        Car.runStep()
-    }
+    runMainLoop(loopCount)
 
     Car.printWinner()
 }
 
-fun makeCar() {
+fun runMainLoop(loopCount: Int){
+    for(i in 1..loopCount){
+        Car.runStep()
+    }
+}
+
+fun makeCar(carList: List<String>) {
     Car.clearCar()
-    val inputList = inputCar()
-    Car.createCar(inputList)
+    Car.createCar(carList)
 }
 
 fun inputCar(): List<String> {
