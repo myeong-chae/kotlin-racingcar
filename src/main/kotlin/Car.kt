@@ -5,6 +5,9 @@ import kotlin.random.Random
 class Car() {
     companion object {
         val mCarList: MutableList<Car> = mutableListOf()
+        fun clearCar(){
+            mCarList.clear()
+        }
         fun createCar(carList: List<String>){
             carList.forEach {
                 mCarList.add(Car().apply { mName = it })

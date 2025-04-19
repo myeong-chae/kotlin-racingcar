@@ -5,6 +5,7 @@ fun main(){
     var success = false
     while (!success) {
         try {
+            Car.clearCar()
             val inputList = inputCar()
             Car.createCar(inputList)
             success = true
