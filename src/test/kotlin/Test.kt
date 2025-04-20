@@ -31,7 +31,7 @@ class JUnitTest {
 
     @Test
     @Order(4)
-    fun winnderTest(){
+    fun winnerTest(){
         Car.printWinner()
     }
 
